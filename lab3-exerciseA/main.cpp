@@ -1,14 +1,17 @@
-//
-//  main.cpp
-//  lab3-exerciseA
-//
-//  Created by Abhilash Paul on 2024-09-28.
-//
+/*
+* File Name: main.cpp
+* Assignment: Lab 2 Exercise B
+* Lab Section: B01
+* Completed by: Abhilash Paul & Seethal Elias
+* Submission Date: Sept 25, 2024
+*/
 
 #include <iostream>
+#include "GraphicsWorld.h"
+
+
+using namespace std;
 
 int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    return 0;
+    GraphicsWorld().run();
 }
