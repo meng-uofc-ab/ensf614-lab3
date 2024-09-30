@@ -28,10 +28,7 @@ typedef Customer LT_Datum;
  
 struct Pair 
 {
-  Pair(LT_Key keyA,LT_Datum datumA):key(keyA), datum(datumA)
-  {
-  } 
-  
+  Pair(LT_Key keyA,LT_Datum datumA):key(keyA), datum(datumA){}
   LT_Key key;
   LT_Datum datum;
 };
@@ -49,16 +46,14 @@ private:
 
 class LookupTable {
  public:
-
   // Nested class
   class Iterator {
-    friend class LookupTable ;
-    LookupTable *LT;
-//    LT_Node* cursor;
+    friend class LookupTable;
+    LookupTable * LT;
     
   public:
     Iterator():LT(0){}
-    Iterator(LookupTable & x): LT(&x){}
+    Iterator(LookupTable& x): LT(&x){}
     const LT_Datum&  operator *();
     const LT_Datum& operator ++();
     const LT_Datum& operator ++(int);
