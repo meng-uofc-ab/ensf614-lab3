@@ -134,12 +134,10 @@ private:
 // Specialization for const char* to handle string comparisons correctly
 template <>
 void Vector<const char*>::ascending_sort() {
-    for (int i = 0; i < size - 1; ++i) {
-        for (int j = 0; j < size - i - 1; ++j) {
-            if (strcmp(array[j], array[j + 1]) > 0) {
-                const char* temp = array[j];
-                array[j] = array[j + 1];
-                array[j + 1] = temp;
+    for (int i = 0; i < size - 1; i++) {
+        for (int j=i+1; j < size; j++) {
+            if (strcmp(array[i], array[j]) > 0) {
+                Vector::swap(array[i], array[j]);
             }
         }
     }
@@ -215,7 +213,7 @@ int main()
     z[0] = "Orange";
     z[1] = "Pear";
     z[2] = "Apple";
-    z[3] = "#Apple";
+    z[3] = "Grapes";
     
     Vector<const char*>::VectIter iterchar(z);
     
