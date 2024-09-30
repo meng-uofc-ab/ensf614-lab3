@@ -57,7 +57,7 @@ void Customer::setPhone(const char*s)
 
 ostream& operator << (ostream& os, const Customer& c)
 {
-  os<< "Nmae: "<< c.getFname();
+  os<< "Name: "<< c.getFname();
   os<<" " <<c.getLname();
   os<< ". Address: " << c.getAddress();
   os<< ". Phone:: " << c.getPhone();
