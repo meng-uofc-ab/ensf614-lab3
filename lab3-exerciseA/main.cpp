@@ -6,12 +6,9 @@
 * Submission Date: Oct 2, 2024
 */
 
-#include <iostream>
 #include "GraphicsWorld.h"
 
-
-using namespace std;
-
-int main(int argc, const char * argv[]) {
+int main() {
     GraphicsWorld().run();
+    return 0;
 }
