@@ -1,9 +1,10 @@
-//
-//  Circle.cpp
-//  lab3-exerciseA
-//
-//  Created by Abhilash Paul on 2024-09-28.
-//
+/*
+* File Name: Circle.cpp
+* Assignment: Lab 3 Exercise A
+* Lab Section: B01
+* Completed by: Abhilash Paul & Seethal Elias
+* Submission Date: Oct 2, 2024
+*/
 
 #define _USE_MATH_DEFINES
 

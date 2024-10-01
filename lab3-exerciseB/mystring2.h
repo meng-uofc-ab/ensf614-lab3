@@ -1,6 +1,6 @@
 /*
 * File Name: mystring2.h
-* Assignment: Lab 3 Exercise B
+* Assignment: Lab 3 Exercise C
 * Lab Section: B01
 * Completed by: Abhilash Paul & Seethal Elias
 * Submission Date: Oct 2, 2024
