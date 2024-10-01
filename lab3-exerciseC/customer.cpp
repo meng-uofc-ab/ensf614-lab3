@@ -1,5 +1,11 @@
-// ENSF 614  - Lab 3, Ex C
-// M. Moussavi
+/*
+* File Name: customer.cpp
+* Assignment: Lab 3 Exercise C
+* Lab Section: B01
+* Completed by: Abhilash Paul & Seethal Elias
+* Submission Date: Oct 2, 2024
+*/
+
 
 #include "customer.h"
 #include <iostream>

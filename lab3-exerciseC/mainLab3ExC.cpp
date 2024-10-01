@@ -1,6 +1,10 @@
-
-// ENSF 614 - Lab 3, Ex C
-// M. Moussavi
+/*
+* File Name: mainLab3ExC.cpp
+* Assignment: Lab 3 Exercise C
+* Lab Section: B01
+* Completed by: Abhilash Paul & Seethal Elias
+* Submission Date: Oct 2, 2024
+*/
 
 #include <assert.h>
 #include <iostream>
@@ -9,17 +13,31 @@
 #include <cstring>
 using namespace std;
 
+template <typename KeyType, typename DatumType>
+void print(LookupTable<KeyType, DatumType>& lt)
+{
+  if (lt.size() == 0)
+    cout << "  Table is EMPTY.\n";
+  for (lt.go_to_first(); lt.cursor_ok(); lt.step_fwd()) {
+    cout << lt << endl;
+  }
+}
 
-void print(LookupTable& lt);
-
-
-void try_to_find(LookupTable& lt, int key);
+template <typename KeyType, typename DatumType>
+void try_to_find(LookupTable<KeyType, DatumType>& lt, int key)
+{
+  lt.find(key);
+  if (lt.cursor_ok())
+    cout << "\nFound key:"  << lt;
+  else
+    cout << "\nSorry, I couldn't find key: " << key << " in the table.\n";
+}
 
 void test_Customer();
 
 //Uncomment the following function calls when ready to test template class LookupTable
-//void test_String();
-//void test_integer();
+void test_String();
+void test_integer();
 
 int main()
 {
@@ -29,40 +47,22 @@ int main()
     
  // Uncomment the following function calls when ready to test template class LookupTable
  // create and test a a lookup table of type <int, String>
- // test_String();
+ test_String();
 
  // Uncomment the following function calls when ready to test template class LookupTable
  // create and test a a lookup table of type <int, int>
- // test_integer();
+ test_integer();
+    
+ cout<<"\n\nProgram terminated successfully.\n\n";
 
-  cout<<"\n\nProgram terminated successfully.\n\n";
-
-  return 0;
-}
-
-void print(LookupTable& lt)
-{
-  if (lt.size() == 0)
-    cout << "  Table is EMPTY.\n";
-  for (lt.go_to_first(); lt.cursor_ok(); lt.step_fwd()) {
-    cout << lt << endl;
-  }
-}
-
-void try_to_find(LookupTable& lt, int key)
-{
-  lt.find(key);
-  if (lt.cursor_ok())
-    cout << "\nFound key:"  << lt;
-  else
-    cout << "\nSorry, I couldn't find key: " << key << " in the table.\n";
+ return 0;
 }
 
 void test_Customer()
   //creating a lookup table for customer objects.
   {
-    cout<<"\nCreating and testing Customers Lookup Table <not template>-...\n";
-    LookupTable lt;
+    cout<<"\nCreating and testing Customers Lookup Table...\n";
+    LookupTable<int,Customer> lt;
     
     // Insert using new keys.
     Customer a("Joe", "Morrison", "11 St. Calgary.", "(403)-1111-123333");
@@ -86,7 +86,7 @@ void test_Customer()
 
     // test Iterator
     cout << "\nTesing and using  iterator ...\n";
-    LookupTable::Iterator it = lt.begin();
+    LookupTable<int, Customer>::Iterator it = lt.begin();
     cout <<"\nThe first node contains: " <<*it <<endl;
 
     while (!it) {
@@ -121,14 +121,14 @@ void test_Customer()
     
   }
 
-/* Uncomment and modify the following funciton when ready to test LookupTable<int,Mystring>
+// Uncomment and modify the following funciton when ready to test LookupTable<int,Mystring>
 
 void test_String()
 
   // creating lookuptable for Mystring objects
   {
     cout<<"\nCreating and testing LookupTable <int, Mystring> .....\n";
-    LookupTable lt <int, Mstring>;
+    LookupTable<int, Mystring> lt;
 
     // Insert using new keys.
 
@@ -140,9 +140,9 @@ void test_String()
     lt.insert(Pair<int, Mystring> (8001,b));
     lt.insert(Pair<int, Mystring> (8004,c));
  
-    //assert(lt.size() == 3);
-    //lt.remove(8004);
-    //assert(lt.size() == 2);
+    assert(lt.size() == 3);
+    lt.remove(8004);
+    assert(lt.size() == 2);
     cout << "\nPrinting table after inserting 3 new keys and  and 1 removal...\n";
     print(lt);
 
@@ -152,7 +152,7 @@ void test_String()
     try_to_find(lt, 8001);
     try_to_find(lt, 8000);
     // test Iterator
-    LookupTable::Iterator it = lt.begin();
+    LookupTable<int, Mystring>::Iterator it = lt.begin();
     cout <<"\nThe first node contains: " <<*it <<endl;
 
     while (!it) {
@@ -185,18 +185,13 @@ void test_String()
     cin.get();
   }
 
-*/
-
-
-/* Uncomment and modify the following funciton when ready to test LookupTable<int,int>
+//Uncomment and modify the following funciton when ready to test LookupTable<int,int>
 
 void test_integer()
-
   //creating look table of integers
-
   {
     cout<<"\nCreating and testing LookupTable <int, int> .....\n";
-    LookupTable  lt<int, int>;
+    LookupTable<int, int> lt;
 
     // Insert using new keys.
     lt.insert(Pair<int, int>(8002,9999));
@@ -215,7 +210,7 @@ void test_integer()
     try_to_find(lt, 8000);
 
     // test Iterator
-    LookupTable::Iterator it = lt.begin();
+    LookupTable<int, int>::Iterator it = lt.begin();
 
     while (!it) {
       cout <<++it << endl;
@@ -247,4 +242,3 @@ void test_integer()
     cout << "***----Finished Lab 4 tests on <int> <int>-----***\n";
     
   }
-*/
