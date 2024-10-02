@@ -127,13 +127,7 @@ void GraphicsWorld::run() {
 #endif
     
 #if 0
-    cout << "\nTesting multiple inherittance:" << endl;
-    CurveCut cc1(5, 1, 0, 7, 9, "Curve cut - 1");
-    cc1.display();
-#endif // end of block to test multiple inherittance
-    
-#if 0
-    cout << "Testing invalid inputs to curve cut:" << endl;
+    cout << "\nTesting invalid inputs to curve cut:" << endl;
     CurveCut cc3(9, 1, 0, 7, 9, "Curve cut - 2");
 #endif
     

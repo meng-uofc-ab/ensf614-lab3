@@ -19,7 +19,7 @@ CurveCut::CurveCut(double r, double x, double y, double length, double width, co
 Shape(x, y, name), Rectangle(length, width, x, y, name), Circle(r, x, y, name)
 {
     if (radius > min(length, width)) {
-        cerr << "Radius must be greater than both length and width." << endl;
+        cerr << "Radius must be less than or equal to the smallest value of length and width of the rectangle." << endl;
         exit(1);
     }
 }

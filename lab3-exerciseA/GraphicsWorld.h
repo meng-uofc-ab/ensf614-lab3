@@ -9,8 +9,6 @@
 #ifndef GraphicsWorld_h
 #define GraphicsWorld_h
 
-#include <stdio.h>
-
 class GraphicsWorld {
 public:
     void run();
